@@ -1155,10 +1155,19 @@
   });
 
   // Form submit
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     const email = document.getElementById('emailInput').value;
     const stripeUrl = 'https://buy.stripe.com/aFadRb7IMaPYgPb1Lm1RC05?locale=pl&prefilled_email=' + encodeURIComponent(email);
+
+    try {
+      await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+    } catch (_) {}
+
     window.location.href = stripeUrl;
   }
 
