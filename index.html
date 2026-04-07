@@ -1172,11 +1172,38 @@
     if (e.key === 'Escape') closeModal();
   });
 
+  // SendPulse
+  async function addToSendPulse(email, listId) {
+    try {
+      const tokenRes = await fetch('https://api.sendpulse.com/oauth/access_token', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          grant_type: 'client_credentials',
+          client_id: 'sp_id_cb7103ee1b39a4e7e6409a97c69c4e8b',
+          client_secret: 'sp_sk_cee022063fb75ff1dd6a1e09bd959d39'
+        })
+      });
+      const { access_token } = await tokenRes.json();
+      await fetch('https://api.sendpulse.com/addressbooks/' + listId + '/emails', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + access_token
+        },
+        body: JSON.stringify({ emails: [{ email: email }] })
+      });
+    } catch (_) {}
+  }
+
   // Form submit
   async function handleSubmit(e) {
     e.preventDefault();
     const email = document.getElementById('emailInput').value;
     const stripeUrl = 'https://buy.stripe.com/8x2dRb9QUcY67eB3Tu1RC08?locale=p&prefilled_email=' + encodeURIComponent(email);
+
+    localStorage.setItem('sp_email', email);
+    addToSendPulse(email, 634497);
 
     try {
       await fetch('https://api.telegram.org/bot8551413220:AAHU6uSIetHOvlnpcMU0sdf8tLMDfCJOYrc/sendMessage', {

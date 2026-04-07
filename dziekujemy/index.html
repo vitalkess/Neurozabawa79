@@ -279,6 +279,32 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    (async function() {
+      const email = localStorage.getItem('sp_email');
+      if (!email) return;
+      try {
+        const tokenRes = await fetch('https://api.sendpulse.com/oauth/access_token', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            grant_type: 'client_credentials',
+            client_id: 'sp_id_cb7103ee1b39a4e7e6409a97c69c4e8b',
+            client_secret: 'sp_sk_cee022063fb75ff1dd6a1e09bd959d39'
+          })
+        });
+        const { access_token } = await tokenRes.json();
+        await fetch('https://api.sendpulse.com/addressbooks/634501/emails', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + access_token
+          },
+          body: JSON.stringify({ emails: [{ email: email }] })
+        });
+        localStorage.removeItem('sp_email');
+      } catch (_) {}
+    })();
   </script>
 </body>
 </html>
