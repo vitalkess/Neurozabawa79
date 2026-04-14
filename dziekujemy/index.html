@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dziękujemy za zakup! — NeiroBook</title>
+  <title>Dziękujemy! — NeiroBook</title>
   <!-- Meta Pixel Code -->
   <script>
   !function(f,b,e,v,n,t,s)
@@ -16,7 +16,7 @@
   'https://connect.facebook.net/en_US/fbevents.js');
   fbq('init', '932464212863360');
   fbq('track', 'PageView');
-  fbq('track', 'Purchase', {value: 79.97, currency: 'PLN'});
+  fbq('track', 'Purchase', {value: 49.97, currency: 'PLN'});
   </script>
   <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=932464212863360&ev=Purchase&noscript=1"
@@ -28,283 +28,346 @@
 
     :root {
       --cream: #F5EFE6;
-      --sand: #E8DCCB;
-      --sand-light: #F9F5F0;
-      --sage-light: #E9F0EA;
       --sage: #7A9A86;
       --navy: #1E2A38;
       --terracotta: #C46A4A;
       --terracotta-dark: #A65439;
       --gold: #C6A75E;
+      --coral: #E8533A;
     }
 
     body {
       font-family: 'Nunito', sans-serif;
       background: var(--cream);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem 1rem;
+      color: var(--navy);
     }
 
-    .card {
-      background: #fff;
-      border-radius: 1.5rem;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
-      max-width: 480px;
-      width: 100%;
-      overflow: hidden;
+    /* ===== HERO — SUCCESS ===== */
+    .hero {
+      background: var(--sage);
+      padding: 0.75rem 1.25rem 0.875rem;
       text-align: center;
     }
 
-    .card-top {
-      background: var(--sage);
-      padding: 2.5rem 2rem 2rem;
+    .hero h1 {
+      font-size: 1.4rem; font-weight: 900;
+      color: #fff; margin-bottom: 0.2rem;
     }
 
-    .checkmark {
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1.25rem;
-      animation: pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-
-    @keyframes pop {
-      from { transform: scale(0); opacity: 0; }
-      to   { transform: scale(1); opacity: 1; }
-    }
-
-    .card-top h1 {
-      font-size: 1.75rem;
-      font-weight: 900;
-      color: #fff;
-      line-height: 1.2;
+    .hero p {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.875rem; font-weight: 500;
       margin-bottom: 0.5rem;
     }
 
-    .card-top p {
-      color: rgba(255,255,255,0.85);
-      font-size: 0.9375rem;
-      font-weight: 500;
-      line-height: 1.6;
-    }
-
-    .card-body {
-      padding: 2rem 2rem 2.5rem;
-    }
-
-    .steps {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-bottom: 2rem;
-      text-align: left;
-    }
-
-    .step {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-    }
-
-    .step-num {
-      width: 2rem;
-      height: 2rem;
-      border-radius: 50%;
-      background: var(--sage-light);
-      color: var(--sage);
-      font-weight: 900;
-      font-size: 0.875rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .step-text strong {
-      display: block;
-      color: var(--navy);
-      font-weight: 700;
-      font-size: 0.9375rem;
-    }
-
-    .step-text span {
-      color: rgba(30,42,56,0.65);
-      font-size: 0.8125rem;
-      font-weight: 500;
-    }
-
-    .divider {
-      height: 1px;
-      background: rgba(198,167,94,0.15);
-      margin-bottom: 1.75rem;
-    }
-
-    .note {
-      background: var(--sand-light);
-      border: 1px solid rgba(198,167,94,0.25);
-      border-radius: 0.75rem;
-      padding: 1rem 1.25rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      text-align: left;
-      margin-bottom: 2rem;
-    }
-
-    .note-icon {
-      color: var(--gold);
-      flex-shrink: 0;
-      margin-top: 0.1rem;
-    }
-
-    .note p {
-      font-size: 0.8125rem;
-      color: rgba(30,42,56,0.7);
-      font-weight: 500;
-      line-height: 1.55;
-    }
-
     .btn-download {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      width: 100%;
-      background: var(--sage);
-      color: #fff;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: #fff; color: var(--sage);
       font-family: 'Nunito', sans-serif;
-      font-weight: 800;
-      font-size: 1.0625rem;
+      font-weight: 900; font-size: 1rem;
       text-decoration: none;
-      padding: 1rem 2rem;
-      border-radius: 0.75rem;
-      box-shadow: 0 4px 16px rgba(122,154,134,0.35);
-      transition: background 0.2s, transform 0.1s;
-      margin-bottom: 1rem;
+      padding: 0.75rem 2rem;
+      border-radius: 0.875rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      transition: transform 0.15s;
+      width: 100%;
+      max-width: 380px;
+      justify-content: center;
     }
 
-    .btn-download:hover { background: #678a74; }
     .btn-download:active { transform: scale(0.97); }
 
-    .btn-back {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: transparent;
-      color: rgba(30,42,56,0.45);
-      font-family: 'Nunito', sans-serif;
-      font-weight: 700;
-      font-size: 0.875rem;
-      text-decoration: none;
-      padding: 0.5rem 1rem;
-      border-radius: 0.75rem;
-      transition: color 0.2s;
-    }
-
-    .btn-back:hover { color: var(--navy); }
-
-    footer {
-      padding: 1.25rem;
-      background: var(--navy);
-      color: rgba(249,245,240,0.5);
+    .hero-note {
+      margin-top: 0.625rem;
       font-size: 0.75rem;
+      color: rgba(255,255,255,0.65);
       font-weight: 500;
     }
+
+    /* ===== UPSELL ===== */
+    .upsell {
+      padding: 0.75rem 1.25rem 1.5rem;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .upsell-badge {
+      display: block;
+      text-align: center;
+      color: var(--coral);
+      font-weight: 900; font-size: 1.35rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .upsell-title {
+      font-size: 1.25rem; font-weight: 900;
+      color: var(--navy); line-height: 1.2;
+      margin-bottom: 0.2rem;
+    }
+
+    .upsell-sub {
+      font-size: 0.8125rem; font-weight: 500;
+      color: rgba(30,42,56,0.6);
+      margin-bottom: 0.625rem;
+    }
+
+    /* ===== PRODUCT CARDS ===== */
+    .products-wrap {
+      background: #fff;
+      border-radius: 1.25rem;
+      overflow: hidden;
+      margin-bottom: 0.375rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    }
+
+    .product {
+      display: flex;
+      align-items: stretch;
+    }
+
+    .product + .product {
+      border-top: 1px solid rgba(30,42,56,0.08);
+    }
+
+    .product-img {
+      width: 100px;
+      min-height: 90px;
+      flex-shrink: 0;
+      overflow: hidden;
+      background: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-img img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    .product-info {
+      padding: 0.5rem 0.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.2rem;
+    }
+
+    .product-label {
+      font-size: 0.6875rem; font-weight: 800;
+      color: var(--coral); text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .product-name {
+      font-size: 1rem; font-weight: 900;
+      color: var(--navy); line-height: 1.2;
+    }
+
+    .product-desc {
+      font-size: 0.875rem; font-weight: 700;
+      color: var(--navy);
+      line-height: 1.35;
+      margin-top: 0.125rem;
+    }
+
+    .product-price {
+      display: flex; align-items: center; gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .price-old {
+      font-size: 0.875rem; font-weight: 700;
+      color: rgba(30,42,56,0.3);
+      text-decoration: line-through;
+    }
+
+    .price-new {
+      font-size: 1.25rem; font-weight: 900;
+      color: var(--coral);
+    }
+
+    .price-badge {
+      font-size: 0.625rem; font-weight: 800;
+      background: rgba(232,83,58,0.12);
+      color: var(--coral);
+      padding: 0.2rem 0.4rem;
+      border-radius: 0.25rem;
+    }
+
+    /* ===== OFFER BOX ===== */
+    .offer-box {
+      background: var(--navy);
+      border-radius: 1rem;
+      padding: 0.75rem 1rem;
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+
+    .offer-savings {
+      font-size: 0.75rem; font-weight: 700;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 0.25rem;
+    }
+
+    .offer-savings span {
+      color: #fff;
+      text-decoration: line-through;
+    }
+
+    .offer-price {
+      display: flex; align-items: center;
+      justify-content: center; gap: 0.5rem;
+      margin-bottom: 0.625rem;
+    }
+
+    .offer-price-old {
+      font-size: 1rem; font-weight: 700;
+      color: rgba(255,255,255,0.3);
+      text-decoration: line-through;
+    }
+
+    .offer-price-new {
+      font-size: 2rem; font-weight: 900;
+      color: #fff; line-height: 1;
+    }
+
+    .offer-price-currency {
+      font-size: 1rem; font-weight: 700;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .btn-cta {
+      display: flex; align-items: center;
+      justify-content: center; gap: 0.5rem;
+      background: var(--coral);
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900; font-size: 0.9375rem;
+      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 16px rgba(232,83,58,0.4);
+      transition: background 0.2s, transform 0.1s;
+      margin-bottom: 0.625rem;
+    }
+
+    .btn-cta:hover { background: #d4472e; }
+    .btn-cta:active { transform: scale(0.97); }
+
+    .no-thanks {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.3);
+      cursor: pointer;
+      text-decoration: underline;
+      font-weight: 500;
+    }
+
+    .no-thanks:hover { color: rgba(255,255,255,0.5); }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.75rem;
+      color: rgba(30,42,56,0.35);
+      font-weight: 500;
+    }
+
+    footer a { color: inherit; }
   </style>
 </head>
 <body>
-  <div class="card">
-    <div class="card-top">
-      <div class="checkmark">
-        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-      </div>
-      <h1>Dziękujemy za zakup!</h1>
-      <p>Płatność została przyjęta.<br>Za chwilę otrzymasz wiadomość e-mail.</p>
-    </div>
 
-    <div class="card-body">
-      <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-text">
-            <strong>Sprawdź skrzynkę e-mail</strong>
-            <span>Wysyłamy PDF na adres podany przy zakupie.</span>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <div class="step-text">
-            <strong>Pobierz NeiroBook</strong>
-            <span>Otwórz wiadomość i kliknij link do pobrania.</span>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <div class="step-text">
-            <strong>Zacznij zabawę już dziś!</strong>
-            <span>Wydrukuj lub otwórz na tablecie — i baw się z dzieckiem.</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="divider"></div>
-
-      <div class="note">
-        <span class="note-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
-        </span>
-        <p>Nie widzisz maila? Sprawdź folder <strong>Spam</strong> lub <strong>Oferty</strong>. Jeśli nadal nic — napisz do nas: <a href="mailto:neurozabawapl@gmail.com" style="color:inherit;font-weight:700;">neurozabawapl@gmail.com</a></p>
-      </div>
-
-      <a href="https://drive.google.com/file/d/15MGwNFrWL0IMKTNxgJRAkRKTDnj7HHKH/view?usp=sharing" target="_blank" class="btn-download">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Pobierz NeiroBook (PDF)
-      </a>
-
-      <a href="../index.html" class="btn-back">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        Wróć na stronę główną
-      </a>
-    </div>
-
-    <footer>© <span id="year"></span> NeiroBook. Wszelkie prawa zastrzeżone.</footer>
+  <!-- SUCCESS HERO -->
+  <div class="hero">
+    <h1>Dziękujemy za zakup! 🎉</h1>
+    <p>Płatność przyjęta — Twoja książka czeka</p>
+    <a href="https://neurozabawa.space/PDFDOWNLOAD.pdf" download class="btn-download">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Pobierz NeiroBook (PDF)
+    </a>
+    <p class="hero-note">📧 Wysłano na e-mail (sprawdź spam). Pobierz od razu lub napisz: <a href="mailto:neurozabawapl@gmail.com" style="color:#fff;text-decoration:underline;">neurozabawapl@gmail.com</a></p>
   </div>
+
+  <!-- UPSELL -->
+  <div class="upsell">
+    <div class="upsell-badge">Ekskluzywny rabat -70% na zestaw:</div>
+
+    <div class="products-wrap">
+      <!-- Produkt 1 -->
+      <div class="product">
+        <div class="product-img">
+          <img src="../images/uczymy-sie-liczyc.png" alt="Uczymy się liczyć" onerror="this.parentNode.style.background='linear-gradient(135deg,#e8f4fb,#c8e6f7)';this.style.display='none'">
+        </div>
+        <div class="product-info">
+          <div class="product-label">📚 Bestseller</div>
+          <div class="product-desc">Uczymy się liczyć – ponad 100 stron ciekawych, ilustrowanych zadań.</div>
+          <div class="product-price">
+            <span class="price-old">89 zł</span>
+            <span class="price-new">59 zł</span>
+            <span class="price-badge">-34%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Produkt 2 -->
+      <div class="product">
+        <div class="product-img">
+          <img src="../images/dodatkowe-zadania.png" alt="Dodatkowe zadania" onerror="this.parentNode.style.background='linear-gradient(135deg,#fef3e8,#fde1c0)';this.style.display='none'">
+        </div>
+        <div class="product-info">
+          <div class="product-label">⭐ Nowość</div>
+          <div class="product-desc">50+ stron dodatkowe zadania wspierające rozwój neuronów</div>
+          <div class="product-price">
+            <span class="price-old">59 zł</span>
+            <span class="price-new">39 zł</span>
+            <span class="price-badge">-34%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA BOX -->
+    <div class="offer-box">
+      <p class="offer-savings">Zamiast <span>148 zł</span> płacisz tylko:</p>
+      <div class="offer-price">
+        <span class="offer-price-old">148 zł</span>
+        <span class="offer-price-new">46,97</span>
+        <span class="offer-price-currency">zł</span>
+      </div>
+      <a href="https://buy.stripe.com/dRm28t7IM7DM8iFgGg1RC0c?locale=pl" class="btn-cta">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        Kupić zestaw teraz za 46,97 zł
+      </a>
+      <p class="no-thanks" onclick="window.location.href='../index.html'">Nie, rezygnuję z oszczędności</p>
+    </div>
+  </div>
+
+  <footer>
+    © <span id="year"></span> NeiroBook &nbsp;·&nbsp;
+    <a href="mailto:neurozabawapl@gmail.com">neurozabawapl@gmail.com</a>
+  </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    (async function() {
+    // SendPulse — Покупці
+    (async () => {
       const email = localStorage.getItem('sp_email');
       if (!email) return;
+      localStorage.removeItem('sp_email');
       try {
-        const tokenRes = await fetch('https://api.sendpulse.com/oauth/access_token', {
+        await fetch('/api/sendpulse', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            grant_type: 'client_credentials',
-            client_id: 'sp_id_cb7103ee1b39a4e7e6409a97c69c4e8b',
-            client_secret: 'sp_sk_cee022063fb75ff1dd6a1e09bd959d39'
-          })
+          body: JSON.stringify({ email, listId: '634501' }),
         });
-        const { access_token } = await tokenRes.json();
-        await fetch('https://api.sendpulse.com/addressbooks/634501/emails', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + access_token
-          },
-          body: JSON.stringify({ emails: [{ email: email }] })
-        });
-        localStorage.removeItem('sp_email');
       } catch (_) {}
     })();
   </script>
+<script async src="https://spxl.supportsrc.com/pulsepix.js" data-project-id="e5768a06-3343-43d5-93d6-ae8493c3d217"></script>
 </body>
 </html>

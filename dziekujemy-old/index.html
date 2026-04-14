@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dziękujemy za zakup! — NeiroBook</title>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '932464212863360');
+  fbq('track', 'PageView');
+  fbq('track', 'Purchase', {value: 79.97, currency: 'PLN'});
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=932464212863360&ev=Purchase&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #F5EFE6;
+      --sand: #E8DCCB;
+      --sand-light: #F9F5F0;
+      --sage-light: #E9F0EA;
+      --sage: #7A9A86;
+      --navy: #1E2A38;
+      --terracotta: #C46A4A;
+      --terracotta-dark: #A65439;
+      --gold: #C6A75E;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--cream);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 1.5rem;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+      max-width: 480px;
+      width: 100%;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .card-top {
+      background: var(--sage);
+      padding: 2.5rem 2rem 2rem;
+    }
+
+    .checkmark {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+      animation: pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes pop {
+      from { transform: scale(0); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+
+    .card-top h1 {
+      font-size: 1.75rem;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-top p {
+      color: rgba(255,255,255,0.85);
+      font-size: 0.9375rem;
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    .card-body {
+      padding: 2rem 2rem 2.5rem;
+    }
+
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .step-num {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: var(--sage-light);
+      color: var(--sage);
+      font-weight: 900;
+      font-size: 0.875rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .step-text strong {
+      display: block;
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 0.9375rem;
+    }
+
+    .step-text span {
+      color: rgba(30,42,56,0.65);
+      font-size: 0.8125rem;
+      font-weight: 500;
+    }
+
+    .divider {
+      height: 1px;
+      background: rgba(198,167,94,0.15);
+      margin-bottom: 1.75rem;
+    }
+
+    .note {
+      background: var(--sand-light);
+      border: 1px solid rgba(198,167,94,0.25);
+      border-radius: 0.75rem;
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      text-align: left;
+      margin-bottom: 2rem;
+    }
+
+    .note-icon {
+      color: var(--gold);
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .note p {
+      font-size: 0.8125rem;
+      color: rgba(30,42,56,0.7);
+      font-weight: 500;
+      line-height: 1.55;
+    }
+
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+      background: var(--sage);
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 1.0625rem;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 16px rgba(122,154,134,0.35);
+      transition: background 0.2s, transform 0.1s;
+      margin-bottom: 1rem;
+    }
+
+    .btn-download:hover { background: #678a74; }
+    .btn-download:active { transform: scale(0.97); }
+
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: rgba(30,42,56,0.45);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.875rem;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 0.75rem;
+      transition: color 0.2s;
+    }
+
+    .btn-back:hover { color: var(--navy); }
+
+    footer {
+      padding: 1.25rem;
+      background: var(--navy);
+      color: rgba(249,245,240,0.5);
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-top">
+      <div class="checkmark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h1>Dziękujemy za zakup!</h1>
+      <p>Płatność została przyjęta.<br>Za chwilę otrzymasz wiadomość e-mail.</p>
+    </div>
+
+    <div class="card-body">
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-text">
+            <strong>Sprawdź skrzynkę e-mail</strong>
+            <span>Wysyłamy PDF na adres podany przy zakupie.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-text">
+            <strong>Pobierz NeiroBook</strong>
+            <span>Otwórz wiadomość i kliknij link do pobrania.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-text">
+            <strong>Zacznij zabawę już dziś!</strong>
+            <span>Wydrukuj lub otwórz na tablecie — i baw się z dzieckiem.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="note">
+        <span class="note-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+        </span>
+        <p>Nie widzisz maila? Sprawdź folder <strong>Spam</strong> lub <strong>Oferty</strong>. Jeśli nadal nic — napisz do nas: <a href="mailto:neurozabawapl@gmail.com" style="color:inherit;font-weight:700;">neurozabawapl@gmail.com</a></p>
+      </div>
+
+      <a href="https://drive.google.com/file/d/15MGwNFrWL0IMKTNxgJRAkRKTDnj7HHKH/view?usp=sharing" target="_blank" class="btn-download">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Pobierz NeiroBook (PDF)
+      </a>
+
+      <a href="../index.html" class="btn-back">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Wróć na stronę główną
+      </a>
+    </div>
+
+    <footer>© <span id="year"></span> NeiroBook. Wszelkie prawa zastrzeżone.</footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    (async function() {
+      const email = localStorage.getItem('sp_email');
+      if (!email) return;
+      try {
+        const tokenRes = await fetch('https://api.sendpulse.com/oauth/access_token', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            grant_type: 'client_credentials',
+            client_id: 'sp_id_cb7103ee1b39a4e7e6409a97c69c4e8b',
+            client_secret: 'sp_sk_cee022063fb75ff1dd6a1e09bd959d39'
+          })
+        });
+        const { access_token } = await tokenRes.json();
+        await fetch('https://api.sendpulse.com/addressbooks/634501/emails', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + access_token
+          },
+          body: JSON.stringify({ emails: [{ email: email }] })
+        });
+        localStorage.removeItem('sp_email');
+      } catch (_) {}
+    })();
+  </script>
+<script async src="https://spxl.supportsrc.com/pulsepix.js" data-project-id="e5768a06-3343-43d5-93d6-ae8493c3d217"></script>
+</body>
+</html>
