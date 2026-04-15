@@ -358,6 +358,7 @@
     (async () => {
       const email = localStorage.getItem('sp_email');
       if (!email) return;
+      localStorage.setItem('sp_upsell_email', email); // зберігаємо для dziekujemy3
       localStorage.removeItem('sp_email');
       try {
         await fetch('/api/sendpulse', {
