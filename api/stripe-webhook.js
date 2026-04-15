@@ -47,6 +47,30 @@ async function sendTelegram(message) {
   });
 }
 
+async function addToSendPulse(email, listId) {
+  try {
+    const tokenRes = await fetch('https://api.sendpulse.com/oauth/access_token', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        grant_type: 'client_credentials',
+        client_id: 'sp_id_cb7103ee1b39a4e7e6409a97c69c4e8b',
+        client_secret: 'sp_sk_cee022063fb75ff1dd6a1e09bd959d39',
+      }),
+    });
+    const { access_token } = await tokenRes.json();
+
+    await fetch(`https://api.sendpulse.com/addressbooks/${listId}/emails`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${access_token}`,
+      },
+      body: JSON.stringify({ emails: [{ email }] }),
+    });
+  } catch (_) {}
+}
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).end('Method Not Allowed');
@@ -71,7 +95,8 @@ export default async function handler(req, res) {
     const session = event.data.object;
     const email = session.customer_details?.email || '—';
     const name = session.customer_details?.name || '—';
-    const amount = ((session.amount_total || 0) / 100).toFixed(2).replace('.', ',');
+    const amountTotal = session.amount_total || 0;
+    const amount = (amountTotal / 100).toFixed(2).replace('.', ',');
     const currency = (session.currency || 'pln').toUpperCase();
 
     const message =
@@ -81,6 +106,14 @@ export default async function handler(req, res) {
       `📧 ${email}`;
 
     await sendTelegram(message);
+
+    // Add to SendPulse mailing list based on purchase amount
+    // 4997 grosze = 49,97 zł (NeiroBook) → list 642238
+    // 4697 grosze = 46,97 zł (Zestaw)    → list 642240
+    if (email !== '—') {
+      const listId = amountTotal === 4697 ? '642240' : '642238';
+      await addToSendPulse(email, listId);
+    }
   }
 
   res.status(200).json({ received: true });
